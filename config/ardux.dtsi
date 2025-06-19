@@ -406,6 +406,22 @@
 				TRAILING_NONES
 			>;
 		};
+		#if defined ARDUX_BIG
+		navigation {
+			display-name = "Nav";
+			bindings = <
+				BIG_LEADING_NONES
+				&kp LC(T) &kp HOME &kp UP &kp END &kp PG_UP
+				BIG_BETWEEN_ROW_ONE_TWO_NONES
+				&kp LC(SPACE) &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN
+				BIG_BETWEEN_ROW_TWO_THREE_NONES
+				&kp S &kp LBKT &kp RBKT &kp RBKT &kp LG(E)
+				BIG_BETWEEN_ROW_THREE_THUMBS
+				&kp SPACE &kp ESC &kp DEL
+				BIG_TRAILING_NONES
+			>;
+		};
+		#else
 		navigation {
 			display-name = "Nav";
 			bindings = <
@@ -416,6 +432,7 @@
 				TRAILING_NONES
 			>;
 		};
+		#endif
 		mouse {
 			display-name = "Mouse";
 			bindings = <
