@@ -237,8 +237,10 @@
 		combo_delete     { timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_I KEY_R>; bindings = <&kp DELETE>; };
 		combo_shift_lock { timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_R KEY_Y>; bindings = <&kt LSHFT>; };
 
+		#if defined ARDUX_BIG
 		combo_ctl_w      { layers = <LAYER_ID_NAVIGATION>; timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_A KEY_R>; bindings = <&kp LC(W)>; };
 		combo_alt_f4     { layers = <LAYER_ID_NAVIGATION>; timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_ALT_F4_1 KEY_ALT_F4_2>; bindings = <&kp LA(F4)>; };
+		#endif
 
 		combo_b           { layers = <LAYER_ID_BASE>; timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_E KEY_O>; bindings = <&kp B>; };
 		combo_c           { layers = <LAYER_ID_BASE>; timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_E KEY_Y>; bindings = <&kp C>; };
