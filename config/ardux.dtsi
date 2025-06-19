@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
 
 /*****************************************
  * Macros for filling in "&none" in the right places in the keymap for re-use needs
@@ -208,10 +209,11 @@
 #define LAYER_ID_SYMBOLS 2
 #define LAYER_ID_PARENTHETICALS 3
 #define LAYER_ID_NAVIGATION 4
-#define LAYER_ID_BT_SEL 5
-#define LAYER_ID_CUSTOM 6
-#define LAYER_ID_BIG_SYM 7
-#define LAYER_ID_BIG_FUNCTION 8
+#define LAYER_ID_MOUSE 5
+#define LAYER_ID_BT_SEL 6
+#define LAYER_ID_CUSTOM 7
+#define LAYER_ID_BIG_SYM 8
+#define LAYER_ID_BIG_FUNCTION 9
 
 /*****************************************
  * Standard ARDUX combo definitions
@@ -265,6 +267,7 @@
 		 *****************************************/
 		combo_esc              { timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_A KEY_R KEY_O>; bindings = <&kp ESC>; };
 		combo_layer_navigation { timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_R KEY_E KEY_I>; bindings = <&tog LAYER_ID_NAVIGATION>; };
+		combo_layer_mouse      { timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_A KEY_T KEY_Y>; bindings = <&tog LAYER_ID_MOUSE>; };
 
 		combo_m            { layers = <LAYER_ID_BASE>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_Y KEY_I KEY_O>; bindings = <&kp M>; };
 		combo_d            { layers = <LAYER_ID_BASE>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_A KEY_R KEY_T>; bindings = <&kp D>; };
@@ -410,6 +413,16 @@
 				TRAILING_NONES
 			>;
 		};
+		mouse {
+			display-name = "Mouse";
+			bindings = <
+				LEADING_NONES
+				&mkp MB1       &mmv MOVE_UP   &mkp MB2        &msc SCRL_UP
+				MIDDLE_NONES
+				&mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN
+				TRAILING_NONES
+			>;
+		};
 		bt {
 			display-name = "BT";
 			bindings = <
@@ -547,6 +560,16 @@
 				&kp PG_UP                                   &kp HOME  &kp UP    &kp END
 				MIDDLE_NONES
 				&kp PG_DN                                   &kp LEFT  &kp DOWN  &kp RIGHT
+				TRAILING_NONES
+			>;
+		};
+			mouse {
+			display-name = "Mouse";
+			bindings = <
+				LEADING_NONES
+				&msc SCRL_UP   &mkp MB2       &mmv MOVE_UP   &mkp MB1
+				MIDDLE_NONES
+				&msc SCRL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT 
 				TRAILING_NONES
 			>;
 		};
