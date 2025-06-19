@@ -423,6 +423,22 @@
 				TRAILING_NONES
 			>;
 		};
+		#if defined ARDUX_BIG
+		bt {
+			display-name = "BT";
+			bindings = <
+				BIG_LEADING_NONES
+				&none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 ARDUX_BT_TOP
+				BIG_BETWEEN_ROW_ONE_TWO_NONES
+				&none &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5 ARDUX_BT_BOTTOM
+				BIG_BETWEEN_ROW_TWO_THREE_NONES
+				&none &none &none &none &none
+				BIG_BETWEEN_ROW_THREE_THUMBS
+				&none &sys_reset &bootloader
+				BIG_TRAILING_NONES
+			>;
+		};
+		#else
 		bt {
 			display-name = "BT";
 			bindings = <
@@ -433,6 +449,7 @@
 				TRAILING_NONES
 			>;
 		};
+		#endif
 		ARDUX_LAYER_CUSTOM
 		#if defined ARDUX_BIG
 		big_ardux_symbol {
@@ -573,6 +590,22 @@
 				TRAILING_NONES
 			>;
 		};
+		#if defined ARDUX_BIG
+		bt {
+			display-name = "BT";
+			bindings = <
+				BIG_LEADING_NONES
+				ARDUX_BT_TOP    &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &none
+				BIG_BETWEEN_ROW_ONE_TWO_NONES
+				ARDUX_BT_BOTTOM &bt BT_SEL 5 &bt BT_SEL 4 &bt BT_SEL 3 &none
+				BIG_BETWEEN_ROW_TWO_THREE_NONES
+				&none &none &none &none &none
+				BIG_BETWEEN_ROW_THREE_THUMBS
+				&bootloader &sys_reset &none
+				BIG_TRAILING_NONES
+			>;
+		};
+		#else
 		bt {
 			display-name = "BT";
 			bindings = <
@@ -583,6 +616,7 @@
 				TRAILING_NONES
 			>;
 		};
+		#endif
 		ARDUX_LAYER_CUSTOM
 		#if defined ARDUX_BIG
 		big_ardux_symbol {
