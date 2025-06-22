@@ -152,9 +152,9 @@
 			display-name = "Custom";                                          \
 			bindings = <                                               \
 				LEADING_NONES                                          \
-				&kp C_MUTE &kp INS   &kp C_VOL_UP  &none               \
+				&kp C_AC_BACK &kp C_AC_HOME    &kp C_VOL_UP  &kp PSCRN               \
 				MIDDLE_NONES                                           \
-				&sk RSHFT  &kp PSCRN &kp C_VOL_DN  &mo LAYER_ID_CUSTOM \
+				&sk C_MUTE    &kp C_AC_SEARCH  &kp C_VOL_DN  &mo LAYER_ID_CUSTOM \
 				TRAILING_NONES                                         \
 			>;                                                         \
 		};
@@ -165,9 +165,9 @@
 			display-name = "Custom";                                          \
 			bindings = <                                               \
 				LEADING_NONES                                          \
-				&none               &kp C_VOL_UP  &kp INS   &kp C_MUTE \
+				&kp PSCRN           &kp C_VOL_UP  &kp C_AC_HOME   &kp C_AC_BACK \
 				MIDDLE_NONES                                           \
-				&mo LAYER_ID_CUSTOM &kp C_VOL_DN  &kp PSCRN &sk RSHFT  \
+				&mo LAYER_ID_CUSTOM &kp C_VOL_DN  &kp C_AC_SEARCH &sk C_MUTE  \
 				TRAILING_NONES                                         \
 			>;                                                         \
 		};
@@ -236,6 +236,11 @@
 		combo_backspace  { timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_E KEY_R>; bindings = <&kp BACKSPACE>; };
 		combo_delete     { timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_I KEY_R>; bindings = <&kp DELETE>; };
 		combo_shift_lock { timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_R KEY_Y>; bindings = <&kt LSHFT>; };
+
+		#if defined ARDUX_BIG
+		combo_ctl_w      { layers = <LAYER_ID_NAVIGATION>; timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_A KEY_R>; bindings = <&kp LC(W)>; };
+		combo_alt_f4     { layers = <LAYER_ID_NAVIGATION>; timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_ALT_F4_1 KEY_ALT_F4_2>; bindings = <&kp LA(F4)>; };
+		#endif
 
 		combo_b           { layers = <LAYER_ID_BASE>; timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_E KEY_O>; bindings = <&kp B>; };
 		combo_c           { layers = <LAYER_ID_BASE>; timeout-ms = <TIMEOUT_COMBO_2>; key-positions = <KEY_E KEY_Y>; bindings = <&kp C>; };
@@ -337,7 +342,7 @@
 				BIG_BETWEEN_ROW_TWO_THREE_NONES
 				&kp TAB              &kp EQUAL                                                         &kp DEL               &kp AT                &ctrl_alt_kp LALT LCTRL
 				BIG_BETWEEN_ROW_THREE_THUMBS
-				&kp ENTER            &kp SPACE                                                         &mo LAYER_ID_BIG_SYM
+				&kp SPACE            &kp SPACE                                                         &mo LAYER_ID_BIG_SYM
 				BIG_TRAILING_NONES
 			>;
 		};
@@ -403,6 +408,22 @@
 				TRAILING_NONES
 			>;
 		};
+		#if defined ARDUX_BIG
+		navigation {
+			display-name = "Nav";
+			bindings = <
+				BIG_LEADING_NONES
+				&kp LC(T) &kp HOME &kp UP &kp END &kp PG_UP
+				BIG_BETWEEN_ROW_ONE_TWO_NONES
+				&kp LC(SPACE) &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN
+				BIG_BETWEEN_ROW_TWO_THREE_NONES
+				&kp S &kp LBKT &kp RBKT &kp RBKT &kp LG(E)
+				BIG_BETWEEN_ROW_THREE_THUMBS
+				&kp SPACE &kp ESC &kp DEL
+				BIG_TRAILING_NONES
+			>;
+		};
+		#else
 		navigation {
 			display-name = "Nav";
 			bindings = <
@@ -413,6 +434,7 @@
 				TRAILING_NONES
 			>;
 		};
+		#endif
 		#if defined ARDUX_BIG
 		bt {
 			display-name = "BT";
@@ -504,7 +526,7 @@
 				BIG_BETWEEN_ROW_TWO_THREE_NONES
 				&ctrl_alt_kp LALT LCTRL                             &kp AT                &kp DEL               &kp EQUAL                                                      &kp TAB
 				BIG_BETWEEN_ROW_THREE_THUMBS
-				&mo LAYER_ID_BIG_SYM                                &kp SPACE             &kp ENTER
+				&mo LAYER_ID_BIG_SYM                                &kp SPACE             &kp SPACE
 				BIG_TRAILING_NONES
 			>;
 		};
@@ -570,6 +592,22 @@
 				TRAILING_NONES
 			>;
 		};
+		#if defined ARDUX_BIG
+		navigation {
+			display-name = "Nav";
+			bindings = <
+				BIG_LEADING_NONES
+				&kp PG_UP &kp HOME &kp UP &kp END &kp LC(T) 
+				BIG_BETWEEN_ROW_ONE_TWO_NONES
+				&kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp LC(SPACE)
+				BIG_BETWEEN_ROW_TWO_THREE_NONES
+				&kp LG(E) &kp RBKT &kp RBKT &kp LBKT &kp S 
+				BIG_BETWEEN_ROW_THREE_THUMBS
+				&kp DEL &kp ESC &kp SPACE
+				BIG_TRAILING_NONES
+			>;
+		};
+		#else
 		navigation {
 			display-name = "Nav";
 			bindings = <
@@ -580,6 +618,7 @@
 				TRAILING_NONES
 			>;
 		};
+		#endif
 		#if defined ARDUX_BIG
 		bt {
 			display-name = "BT";
